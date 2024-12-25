@@ -1,0 +1,23 @@
+version: 0.2
+phases:
+  install:
+    runtime-versions:
+      nodejs: 22.x
+    commands:
+    - cd playwright
+    - npm install
+    - npx playwright install --with-deps
+  pre_build:
+    commands:
+    - echo Waiting for application to be ready...
+    - sleep 30
+  build:
+    commands:
+    - npx playwright test
+  post_build:
+    commands:
+    - echo Tests completed on `date`
+artifacts:
+  files:
+  - playwright-report/**/*
+  name: playwright-report
