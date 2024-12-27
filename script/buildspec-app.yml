@@ -13,5 +13,6 @@ phases:
     commands:
     - docker push $REPOSITORY_URI:$IMAGE_TAG
     - docker push $REPOSITORY_URI:latest
-    - echo Writing image definitions file...
-    - printf '{"ImageURI":"%s"}' $REPOSITORY_URI:$IMAGE_TAG > imageDefinitions.json
+    - echo "Deploying to EC2..."
+    - chmod +x script/deploy.sh
+    - ssh -o StrictHostKeyChecking=no ubuntu@${EC2_HOST} 'bash -s' < script/deploy.sh
