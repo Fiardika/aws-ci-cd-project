@@ -15,6 +15,9 @@ phases:
     - docker push $REPOSITORY_URI:latest
     - echo "Deploying to EC2..."
     - chmod +x script/deploy.sh
+    - ls -la ~/.ssh/
+    - cat ~/.ssh/id_rsa
+    - ssh -v -o StrictHostKeyChecking=no ubuntu@${EC2_HOST} 'echo "SSH connection successful"'
     - ssh -o StrictHostKeyChecking=no ubuntu@${EC2_HOST} 'bash -s' < script/deploy.sh
   install:
     commands:
