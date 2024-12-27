@@ -16,3 +16,7 @@ phases:
     - echo "Deploying to EC2..."
     - chmod +x script/deploy.sh
     - ssh -o StrictHostKeyChecking=no ubuntu@${EC2_HOST} 'bash -s' < script/deploy.sh
+  install:
+    commands:
+    - aws secretsmanager get-secret-value --secret-id EC2_SSH_KEY --query SecretString --output text > ~/.ssh/id_rsa
+    - chmod 600 ~/.ssh/id_rsa
