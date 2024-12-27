@@ -7,6 +7,7 @@ phases:
     - aws secretsmanager get-secret-value --secret-id EC2_SSH_KEY --query 'SecretString' --output text > ~/.ssh/ec2.pem
     - chmod 600 ~/.ssh/ec2.pem
     - echo "Testing SSH connection..."
+    - cat ~/.ssh/ec2.pem
     - ssh -i ~/.ssh/ec2.pem -o StrictHostKeyChecking=no ubuntu@${EC2_HOST} 'echo "SSH connection successful"'
   pre_build:
     commands:
