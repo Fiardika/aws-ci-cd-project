@@ -17,7 +17,9 @@ phases:
   post_build:
     commands:
     - echo Tests completed on `date`
+    - ls -R
+    - ls -R playwright-report
 artifacts:
   files:
-  - playwright-report/**/*
+  - /playwright/playwright-report/**/*
   name: playwright-report
