@@ -1,3 +1,25 @@
-Static Website Example from https://github.com/cloudacademy/static-website-example
+# Repository for [Medium Article](https://medium.com/@fiardikarizki/building-my-first-ci-cd-pipeline-using-aws-pipeline-️-️-9671e0bdc514)
 
-Playwright Script by Alodia Neysa
+Static website sample from [Cloud Academy Repository](https://github.com/cloudacademy/static-website-example)
+
+Playwright Script by [Alodia Neysa](https://www.linkedin.com/in/alodia-neysa/)
+
+===================================================
+
+This repository is used to create a sample CI/CD Pipeline using AWS CodeBuild and AWS Pipeline.
+
+For detailed scripts, refer to the `scripts` directory.
+
+The expected flow is:  
+**Code Change → CodePipeline → CodeBuild (Docker Build) → ECR → CodeBuild (Deploy) → EC2 → CodeBuild (Playwright Test)**
+
+For Playwright, using Node version 22 LTS.  
+If you want to try running tests locally, after cloning the repository, execute the following commands to install dependencies:
+
+-   `cd playwright`
+-   `npm install`
+-   `npx playwright install --with-deps`
+
+Run the tests using the command:
+
+-   `npx playwright test`
