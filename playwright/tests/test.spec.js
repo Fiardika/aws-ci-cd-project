@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 
 test('test', async ({ page }) => {
-  await page.goto('http://18.143.198.35/');
+  await page.goto('http://localhost:8080/');
   await page.getByRole('link', { name: 'Intro' }).click();
   await page.locator('#intro').getByText('Close').click();
 

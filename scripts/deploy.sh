@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Define variables
-region="ap-southeast-1"
-account="351029054045"
+region="your-aws-region-id"
+account="your-aws-account-id"
 repository="aws-ci-cd-project"
 
 # Login to ECR
