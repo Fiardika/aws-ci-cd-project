@@ -13,13 +13,16 @@ For detailed scripts, refer to the `scripts` directory.
 The expected flow is:  
 **Code Change → CodePipeline → CodeBuild (Docker Build) → ECR → CodeBuild (Deploy) → EC2 → CodeBuild (Playwright Test)**
 
-For Playwright, using Node version 22 LTS.  
-If you want to try running tests locally, after cloning the repository, execute the following commands to install dependencies:
+For Playwright, using Node version 22 LTS.
 
+If you want to try running tests locally, after cloning the repository, execute the following commands:
+
+Application
+- `docker build . -t webapp`
+- `docker run -d --name webapp-container -p 8080:80 webapp`
+
+Playwright
 -   `cd playwright`
 -   `npm install`
 -   `npx playwright install --with-deps`
-
-Run the tests using the command:
-
--   `npx playwright test`
+-   `npx playwright test` #Running the test
