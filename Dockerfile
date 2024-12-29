@@ -1,5 +1,5 @@
 # Use the official Nginx image as the base image
-FROM 351029054045.dkr.ecr.ap-southeast-1.amazonaws.com/nginx-fiar
+FROM nginx:latest
 
 # Copy your static website files to the Nginx HTML directory
 COPY . /usr/share/nginx/html
